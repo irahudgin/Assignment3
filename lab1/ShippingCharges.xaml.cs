@@ -24,40 +24,18 @@ namespace lab1
             InitializeComponent();
         }
 
-        private double getWeight()
+        public double getWeight(string weight)
         {
-            if (double.TryParse(Weight.Text, out double weight))
+            if (double.TryParse(weight, out double weight1))
             {
-                if (weight < 0)
+                if (weight1 < 0)
                 {
                     MessageBox.Show("Enter a number above 0");
                     return 0;
                 }
                 else
                 {
-                    return weight;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Enter Valid number");
-                return 0;
-            }
-            
-        }
-
-        private double getDistance()
-        {
-            if (double.TryParse(Distance.Text, out double distance))
-            {
-                if (distance < 0)
-                {
-                    MessageBox.Show("Enter a number above 0");
-                    return 0;
-                }
-                else
-                {
-                    return distance;
+                    return weight1;
                 }
             }
             else
@@ -67,10 +45,31 @@ namespace lab1
             }
         }
 
-        private double calculateShippingCost()
+        public double getDistance(string distance)
         {
-            double weight = getWeight();
-            double distance = getDistance();
+            if (double.TryParse(distance, out double distance1))
+            {
+                if (distance1 < 0)
+                {
+                    MessageBox.Show("Enter a number above 0");
+                    return 0;
+                }
+                else
+                {
+                    return distance1;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Enter Valid number");
+                return 0;
+            }
+        }
+
+        public double calculateShippingCost(string weight1, string distance1)
+        {
+            double weight = getWeight(weight1);
+            double distance = getDistance(distance1);
             double rate;
 
             if (weight <= 2)
@@ -103,7 +102,7 @@ namespace lab1
 
         private void shippingButton_Click(object sender, RoutedEventArgs e)
         {
-            shippingFee.Text = calculateShippingCost().ToString("F2");
+            shippingFee.Text = calculateShippingCost(Weight.Text, Distance.Text).ToString("F2");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

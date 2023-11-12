@@ -75,6 +75,8 @@
       <DependentUpon>ShippingCharges.xaml</DependentUpon>
     </Compile>
     <Compile Include="UnitTests\BankChargesTests.cs" />
+    <Compile Include="UnitTests\PopulationPredictionTests.cs" />
+    <Compile Include="UnitTests\ShippingTests.cs" />
     <Page Include="BankCharges.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

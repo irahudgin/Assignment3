@@ -24,7 +24,7 @@ namespace lab1
             InitializeComponent();
         }
 
-        private void Polution_Growth_Click(object sender, RoutedEventArgs e)
+        public void Polution_Growth_Click(object sender, RoutedEventArgs e)
         {
             /*
              * we are going to do programs in this block
@@ -50,6 +50,34 @@ namespace lab1
                     + daysPopulations);
             }
 
+            MessageBox.Show("Total : " + populationGrowth(populationSize, increaseRate, noofdays));
+        }
+
+        public int populationGrowth(int p, double r, int d)
+        {
+            /*
+             * we are going to do programs in this block
+             */
+            int populationSize = p;
+            // populSize.text always return with string format
+            // we need to convert/parse the input to integer format
+            double increaseRate = r / 100;// will be converted percentage
+
+            int noofdays = d;
+            // need the for loop to go from day 1 population to noofdays population
+            // day1 start population
+            int daysPopulations = populationSize;
+            for (int i = 1; i <= noofdays; i++)
+            {
+                // number of new people
+                double increasePopulation = (daysPopulations * increaseRate);
+
+                // calculating day end population
+                daysPopulations = (int)(daysPopulations + increasePopulation);
+
+                
+            }
+            return daysPopulations;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
